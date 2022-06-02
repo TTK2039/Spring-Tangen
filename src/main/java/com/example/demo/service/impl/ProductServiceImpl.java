@@ -26,5 +26,25 @@ public class ProductServiceImpl implements ProductService {
     	return pdDao.findById(id);
     }
     
+    @Override
+    public int register(Product pd) {
+    	return pdDao.register(pd);
+    }
+    
+    @Override
+    public int delete(int id) {
+    	return pdDao.delete(id);
+    }
+    
+    @Override
+    public List<Product> findByKey(String key) {
+    	return pdDao.findByKey(key);
+    }
+    
+    @Override
+    public int update(Product pd) {
+    	return pdDao.update(pd);
+    }
+    
 }
 

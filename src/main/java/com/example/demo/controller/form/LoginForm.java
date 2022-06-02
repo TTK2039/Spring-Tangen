@@ -1,5 +1,7 @@
 package com.example.demo.controller.form;
 import javax.validation.constraints.NotBlank;
+
+import com.example.demo.entity.User;
 public class LoginForm {
 	
 	@NotBlank
@@ -20,6 +22,8 @@ public class LoginForm {
 		this.password = password;
 	}
     	
-    
+	public User getLoginCheck() {
+		return new User(loginId, password);
+	}
 }
 

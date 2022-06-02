@@ -2,12 +2,15 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
+<c:if test="${empty user}">
+	<meta http-equiv="refresh" content="0;URL=index">
+</c:if>
 <meta charset="UTF-8">
 <title>メニュー</title>
 <link href="css/commons.css" rel="stylesheet">
@@ -26,7 +29,7 @@
 				<div class="user">
 					<p class="user_name">${user.name}さん、こんにちは</p>
 					<form class="logout_form" action="logout">
-						<button>
+						<button class="logout_button">
 							<img src="images/ドアアイコン.png">ログアウト
 						</button>
 					</form>
@@ -41,10 +44,9 @@
 		</div>
 	</c:if>
 	<span class="error">${errorSelect}</span>
-	<form method="get" action="TableServlet" class="search_container ">
-		<input type="text" size="25" placeholder="キーワード検索" name="keyword"
-			id="keyword"> <input type="submit" value="&#xf002"
-			name="find">
+	<form method="get" action="serch" class="search_container ">
+		<input type="text" name="key" size="25" placeholder="キーワード検索">
+		<input type="submit" value="&#xf002">
 	</form>
 
 	<div class="order">
@@ -63,7 +65,7 @@
 	<%-- 	<c:if test="${!(empty count) }"> --%>
 	<div class="caption">
 		<p>
-			検索結果：${count }件<br>${resultSort }</p>
+			検索結果：${list.size()}件<br>${resultSort }</p>
 	</div>
 	<table border="1">
 		<thead>
@@ -82,8 +84,8 @@
 					<td>${products.name}</td>
 					<td>${products.price}</td>
 					<td>${products.categoryName}</td>
-					<td><a class="detail_btn"
-					href="./detail?id=${products.id}"><fmt:message key="form.lbl.detail" /></a></td>
+					<td><a class="detail_btn" href="./detail?id=${products.id}"><fmt:message
+								key="form.lbl.detail" /></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

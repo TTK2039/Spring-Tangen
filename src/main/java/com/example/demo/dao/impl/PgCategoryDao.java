@@ -13,7 +13,7 @@ import com.example.demo.entity.Categories;
 @Repository
 public class PgCategoryDao implements CategoryDao {
 
-	private static final String SQL_SELECT_CATEGORY ="SELECT id, name from categories";
+	private static final String SQL_SELECT_CATEGORY ="SELECT * from categories";
 	@Autowired
 	private NamedParameterJdbcTemplate jdbcTemplate;
 

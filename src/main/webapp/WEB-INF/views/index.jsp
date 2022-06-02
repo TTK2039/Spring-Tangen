@@ -25,12 +25,12 @@
 		<form:form modelAttribute="login" method="post">
 			<div class="cp_iptxt">
 				<label><fmt:message key="form.lbl.loginId" /></label>
-				<form:input path="loginId" />
+				<form:input path="loginId" class="base-text"/>
 				<form:errors path="loginId" cssStyle="color: red" />
 			</div>
 			<div>
 			<label><fmt:message key="form.lbl.password" /></label>
-			<form:input path="password" />
+			<form:input path="password" class="base-text" />
 			<form:errors path="password" cssStyle="color: red" />
 			</div>
 			<form:button formaction="login">ログイン</form:button>

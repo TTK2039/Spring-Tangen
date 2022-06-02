@@ -16,9 +16,41 @@ public class Product {
     
     private Categories category;
 
+    public Product() {
+		super();
+	}
     
+    public Product(String productId,String name,int price, int categoryId, String description) {
+		super();
+		this.productId = productId;
+		this.categoryId = categoryId;
+		this.name = name;
+		this.price = price;
+		this.description = description;
+	}
+
+
+
+	public Product(Timestamp createdAt, Timestamp updatedAt) {
+		super();
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
+
+	public Product(String productId, String name, int price, int categoryId, String description, Timestamp createdAt, Timestamp updatedAt) {
+		super();
+		this.productId = productId;
+		this.categoryId = categoryId;
+		this.name = name;
+		this.price = price;
+		this.description = description;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
+    	
+    	
     
-    
+
 	public int getCategoryId() {
 		return categoryId;
 	}
