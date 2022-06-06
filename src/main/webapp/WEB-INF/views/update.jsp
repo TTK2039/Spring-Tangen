@@ -44,7 +44,7 @@
 					<div>
 						<label>商品ID</label>
 						<form:input type="text" path="pdId"
-							value="${product.productId}" class="base-text" />
+							 class="base-text" />
 							<form:errors path="pdId" cssStyle="color: red" />
 					</div>
 					<div>
@@ -56,7 +56,7 @@
 					<div>
 						<label>単価</label>
 						<form:input path="price"
-							value="${product.price}" class="base-text" />
+							 class="base-text" />
 						<form:errors path="price" cssStyle="color: red" />
 					</div>
 					<div>
@@ -69,9 +69,7 @@
 					</div>
 					<div>
 						<label>商品説明</label>
-						<form:textarea name="description" class="base-text" path="description" placeholder="${ product.description}" >
- 
-            </form:textarea>
+						<form:textarea class="base-text" path="description" />
 					</div>
 					<!--           <div> -->
 					<!--             <label>画像</label> -->

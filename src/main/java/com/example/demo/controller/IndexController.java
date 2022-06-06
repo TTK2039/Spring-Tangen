@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.controller.form.LoginForm;
 import com.example.demo.controller.form.RegisterForm;
 import com.example.demo.controller.form.UpdateForm;
+import com.example.demo.entity.Product;
 import com.example.demo.entity.User;
 import com.example.demo.service.CategoryService;
 import com.example.demo.service.ProductService;
@@ -86,6 +87,18 @@ public class IndexController {
 		
 	}
 	
+	@RequestMapping({ "update" })
+	public String update(@ModelAttribute("update") UpdateForm form,@RequestParam int id,Model model) {
+		Product pd = pdService.findById(id);
+		form.setPdId(pd.getProductId());
+		form.setPdName(pd.getName());
+		form.setPrice(pd.getPrice());
+		form.setRoleId(pd.getCategoryId());
+		form.setDescription(pd.getDescription());
+		
+		return "update";
+	}
+	
 	@RequestMapping({ "insert" })
 	public String insert(@ModelAttribute("insert") RegisterForm form, BindingResult bindingResult,Model model) {
 		//セレクトボタンの項目
@@ -127,13 +140,6 @@ public class IndexController {
 		
 	}
 	
-	@RequestMapping({ "update" })
-	public String update(@ModelAttribute("update") UpdateForm form,@RequestParam int id,Model model) {
-				
-		return "update";
-		
-	}
-	
 	@RequestMapping({"serch"})
 	public String serch(@RequestParam String key,Model model) {
 		
@@ -141,7 +147,6 @@ public class IndexController {
 		
 		return "menu";
 	}
-	
 	
 	@RequestMapping({ "logout" })
 	public String logout(@ModelAttribute("login") LoginForm form,Model model) {

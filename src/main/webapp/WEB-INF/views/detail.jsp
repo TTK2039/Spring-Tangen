@@ -56,8 +56,7 @@
 							value="${product.categoryName}" readonly class="base-text">
 					</div>
 					<div>
-						<label>商品説明</label> <input type="text" name="roleName"
-							value="${product.description}" readonly class="base-text">
+						<label>商品説明</label> <textarea style="background-color:#D0D0D0;" readonly name="roleName" class="base-text">${product.description}</textarea>
 					</div>
 				</fieldset>
 				<div>
